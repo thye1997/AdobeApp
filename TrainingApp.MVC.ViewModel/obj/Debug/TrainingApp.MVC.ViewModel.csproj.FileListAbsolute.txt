@@ -1,0 +1,6 @@
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.ViewModel\bin\Debug\TrainingApp.MVC.ViewModel.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.ViewModel\bin\Debug\TrainingApp.MVC.ViewModel.pdb
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.ViewModel\obj\Debug\TrainingApp.MVC.ViewModel.csproj.AssemblyReference.cache
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.ViewModel\obj\Debug\TrainingApp.MVC.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.ViewModel\obj\Debug\TrainingApp.MVC.ViewModel.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.ViewModel\obj\Debug\TrainingApp.MVC.ViewModel.pdb

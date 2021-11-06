@@ -1,0 +1,6 @@
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.DTO\bin\Debug\TrainingApp.MVC.DTO.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.DTO\bin\Debug\TrainingApp.MVC.DTO.pdb
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.DTO\obj\Debug\TrainingApp.MVC.DTO.csproj.AssemblyReference.cache
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.DTO\obj\Debug\TrainingApp.MVC.DTO.csproj.CoreCompileInputs.cache
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.DTO\obj\Debug\TrainingApp.MVC.DTO.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.DTO\obj\Debug\TrainingApp.MVC.DTO.pdb

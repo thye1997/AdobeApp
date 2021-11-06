@@ -1,0 +1,107 @@
+﻿@model UserCourseViewModel
+@{
+    ViewBag.Title = "Intro";
+}
+<div class="container-fluid">
+    <div class="row">
+        <h5 class="col-xs-2 col-lg-2">Name:</h5>
+        <h5 class="col-lg-10 col-md-10 col-xs-10">@Model.Name </h5>
+
+        <h5 class="col-lg-2 col-md-2 col-xs-2">Age:</h5>
+        <h5 class="col-lg-10 col-md-10 col-xs-10">@Model.Age </h5>
+
+        <h5 class="col-lg-2 col-md-2 col-xs-2">University:</h5>
+        <h5 class="col-lg-10 col-md-10 col-xs-10">@Model.UniversityName </h5>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Course Title</th>
+                <th scope="col">Result</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var n in Model.CourseList)
+            {
+                <tr>
+                    <td>@n.CourseName</td>
+                    @if (!n.IsPassed)
+                    {
+                        <td class="text-danger">@n.Grade</td>
+                    }
+                    else
+                    {
+                        <td class="text-success">@n.Grade</td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addCourseModal">Add</button>
+    </div>
+    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/Intro/AddCourse" method="post">
+                        <div class="form-group">
+                            <input type="text" style="display:none;" class="form-control" id="onAddCourse" data-value="@ViewBag.onAddCourse">
+                            <label asp-for="Name" class="control-label"></label>
+                            @Html.EditorFor(model => model.Course.CourseName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Course.CourseName, String.Empty, new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Country" class="control-label"></label>
+                            @Html.EditorFor(model => model.Course.Grade, new { @class = "form-control Grade" })
+                            @Html.ValidationMessageFor(model => model.Course.Grade, String.Empty, new { @class = "text-danger" })
+                            @Html.HiddenFor(c => c.UserId);
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary pull-left">Save</button>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary pull-left" onclick="return isValid()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        var pageInIt = {
+            InitOnModalCancel : function () {
+                var cancel = $("#onModalCancelButton");
+                cancel.click(function () {
+                    $("#addCourseModal").modal('hide');
+                })
+            }
+        }
+
+        /*jQuery.validator.addMethod("Grade", function (value) {
+            var allowedGrade = ["Passed","Failed"];
+            var in_array = $.inArray(value.toUpperCase(), allowedGrade);
+            if (in_array == -1) { return false; } else { return true; }
+        }, "Invalid Grade Format javascript...");*/
+        $(document).ready(function () {
+            pageInIt.InitOnModalCancel;
+            var onAddCourse = $('#onAddCourse').data("value");
+            //console.log("onaddCourse => " + onAddCourse);
+            if (onAddCourse === "False") {
+                $("#addCourseModal").modal('show');
+            }})
+    </script>
+}

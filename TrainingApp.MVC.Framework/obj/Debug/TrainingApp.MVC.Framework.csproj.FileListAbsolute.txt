@@ -1,0 +1,9 @@
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\bin\Debug\TrainingApp.MVC.Framework.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\bin\Debug\TrainingApp.MVC.Framework.pdb
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\bin\Debug\RestSharp.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\bin\Debug\RestSharp.xml
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\obj\Debug\TrainingApp.MVC.Framework.csproj.AssemblyReference.cache
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\obj\Debug\TrainingApp.MVC.Framework.csproj.CoreCompileInputs.cache
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\obj\Debug\TrainingApp.MVC.Framework.csproj.CopyComplete
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\obj\Debug\TrainingApp.MVC.Framework.dll
+C:\Users\chent\Documents\programming folder\TrainingApp\TrainingApp.MVC.Framework\obj\Debug\TrainingApp.MVC.Framework.pdb
