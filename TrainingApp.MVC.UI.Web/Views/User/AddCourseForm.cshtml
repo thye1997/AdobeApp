@@ -1,0 +1,27 @@
+﻿@model TrainingApp.MVC.ViewModel.UserVM
+
+
+@using (Html.BeginForm("AddCourse", "User", FormMethod.Post, new { id = "AddCourseForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <input type="text" style="display:none;" class="form-control" id="onAddCourse" data-value="@ViewBag.onAddCourse">
+        <label asp-for="Name" class="control-label"></label>
+        @Html.EditorFor(model => model.AddCourseVM.CourseName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.AddCourseVM.CourseName, String.Empty, new { @class = "text-danger" })
+    </div>
+    <div class="form-group" style="margin-bottom:10px;">
+        <label asp-for="Country" class="control-label"></label>
+        @Html.EditorFor(model => model.AddCourseVM.Grade, new { htmlAttributes = new { id = "GradeInput", @class = "form-control Grade" } })
+        @Html.ValidationMessageFor(model => model.AddCourseVM.Grade, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
+        @Html.HiddenFor(c => c.Id)
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary pull-left" onclick="return isValid()">Save</button>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary pull-left">Cancel</button>
+    </div>
+
+
+}
+
+

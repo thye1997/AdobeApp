@@ -22,35 +22,19 @@ namespace TrainingApp.MVC.UI.Process.Processes
         }
         public UserVM Get(int Id)
         {
-            try
-            {
                 string url = $"{ApiConstant.Path.Url.GetUserDetail}{Id}";
 
                 var response = _service.Execute<UserCourseDTO>(url, Method.GET);
 
                 var data = ManualVMMapper(response.Data);
 
-                return data;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                return null;
-            }
-            
+                return data;          
         }
 
         public void AddCourse(UserVM userVM)
         {
-            try
-            {
                 string url = $"{ApiConstant.Path.Url.AddCourse}";
                 var response = _service.Execute<bool>(url, Method.POST, userVM);
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
         }
 
         private UserVM ManualVMMapper(UserCourseDTO userCourseDTO)

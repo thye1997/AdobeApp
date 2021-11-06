@@ -54,7 +54,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/User/AddCourse" method="post">
+                    @Html.Partial("AddCourseForm")
+                    <!--<form action="/User/AddCourse" method="post">
                         <div class="form-group">
                             <input type="text" style="display:none;" class="form-control" id="onAddCourse" data-value="@ViewBag.onAddCourse">
                             <label asp-for="Name" class="control-label"></label>
@@ -71,7 +72,7 @@
                             <button type="submit" class="btn btn-primary pull-left"  onclick="return isValid()">Save</button>
                             <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary pull-left">Cancel</button>
                         </div>
-                    </form>
+                    </form>-->
                 </div>
 
             </div>
