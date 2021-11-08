@@ -8,6 +8,8 @@ namespace TrainingApp.MVC.UI.Web
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            var fontAwesomePath = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -24,7 +26,15 @@ namespace TrainingApp.MVC.UI.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css", "~/Content/sidebar/sidebar.css", "~/Content/custom/custombootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/fontawesome/css", fontAwesomePath).Include(
+                "~/Content/font-awesome.css"));
+
+            bundles.Add(new StyleBundle("~/contact/css").Include(
+               "~/Content/contact/contact.css"));
+
+
         }
     }
 }

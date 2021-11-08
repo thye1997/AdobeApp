@@ -1,12 +1,24 @@
-﻿body {
+﻿/**body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
+**/
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    background: #f1f1f1;
+    height: 100%;
+    width: 100%;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +33,42 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    display: flex;
+    align-items: stretch;
+}
+
+.header {
+    background: #fff;
+}
+
+.main-content {
+    background: #fff;
+    margin-left: 1rem; /* make left right of content have margin */
+    margin-right: 1rem;
+}
+
+.content {
+    width: 100%;
+    background: #F8F8FF;
+}
+/*top right of screen button part*/
+.top-right-btn-bg {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-right:0.5rem;
+}
+
+.top-right-search-btn {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    padding: 15px 10px;
+}
+
+.fa-i-color {
+    color: #696969;
 }
