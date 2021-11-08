@@ -34,12 +34,12 @@ namespace TrainingApp.MVC.UI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.onAddCourse = true;
+                TempData["onAddCourse"] = true;
                 _userProcess.AddCourse(viewModel);
-                return View("Index", _userProcess.Get(1));
+                return RedirectToAction("Index");
             }
-            ViewBag.onAddCourse = false;
-            return View("Index", _userProcess.Get(1));
+            TempData["onAddCourse"] = false;
+            return RedirectToAction("Index");
         }
 
 

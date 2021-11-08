@@ -5,7 +5,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        <input type="text" style="display:none;" class="form-control" id="onAddCourse" data-value="@ViewBag.onAddCourse">
+        <input type="text" style="display:none;" class="form-control" id="onAddCourse" data-value="@TempData["onAddCourse"]">
         <label asp-for="Name" class="control-label"></label>
         @Html.EditorFor(model => model.AddCourseVM.CourseName, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.AddCourseVM.CourseName, String.Empty, new { @class = "text-danger" })
