@@ -261,6 +261,8 @@
     <Content Include="Views\Contact\ContactEmptyView.cshtml" />
     <Content Include="Views\Contact\contactPagination.cshtml" />
     <Content Include="Views\Contact\AddContactModal.cshtml" />
+    <Content Include="Views\Contact\ContactDetailView.cshtml" />
+    <Content Include="Views\Contact\AddTaskModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

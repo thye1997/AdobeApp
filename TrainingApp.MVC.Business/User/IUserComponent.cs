@@ -12,6 +12,20 @@ namespace TrainingApp.MVC.Business
    public interface IUserComponent
     {
         UserCourseDTO Get(int Id);
+
         void AddCourse(UserVM userVM);
+
+        ContactVM GetContactList();
+
+        ContactDetailVM GetContactDetail(int Id);
+
+        ContactVM GetContactListBySort(string sortKeyword);
+
+        void AddContact(ContactVM contactVM);
+
+        void AddTask(ContactDetailVM contactVM);
+
+        void EditTask(EditTaskVM editTaskVM);
+
     }
 }

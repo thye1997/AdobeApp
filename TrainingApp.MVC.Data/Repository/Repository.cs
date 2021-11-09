@@ -16,6 +16,7 @@ namespace TrainingApp.MVC.Data
         {
             _appDbContext = appDbContext;
         }
+
         public IQueryable<TEntity> GetQuery<TEntity>(Expression<Func<TEntity, bool>> exp = null) where TEntity : class, new()
         {
             IQueryable<TEntity> query = _appDbContext.Set<TEntity>();

@@ -319,3 +319,6 @@ C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI
 C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI.Web\obj\Debug\TrainingApp.MVC.UI.Web.csproj.CopyComplete
 C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI.Web\obj\Debug\TrainingApp.MVC.UI.Web.dll
 C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI.Web\obj\Debug\TrainingApp.MVC.UI.Web.pdb
+C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI.Web\bin\TrainingApp.MVC.Entities.dll
+C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI.Web\bin\TrainingApp.MVC.Entities.pdb
+C:\Users\chent\Documents\programming folder\AdobeApp\AdobeApp\TrainingApp.MVC.UI.Web\bin\TrainingApp.MVC.Entities.dll.config

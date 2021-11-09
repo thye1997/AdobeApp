@@ -1,78 +1,86 @@
-﻿
+﻿@model ContactVM
 @{
     ViewBag.Title = "Index";
 }
 
 @Styles.Render("~/contact/css")
-@Html.Partial("AddContactModal")
-@Html.Partial("ContactListView")
+@Html.Partial("_topview",TempData["Header"] = "Contacts")
+
+@if (Model.ContactVMList.Count <= 0)
+{
+    @Html.Partial("ContactEmptyView", Model)
+}
+else
+{
+    @Html.Partial("ContactListView", Model)
+
+}
+@Html.Partial("AddContactModal", Model)
 
 @section Scripts
 {
-        <script>
-            var outerRow = document.getElementById("outer-row");
-            var listViewbtn = $('#listViewBtn');
-            var gridViewbtn = $('#gridViewBtn');
-            var imageUploaderDiv = document.getElementById("image-uploader-div");
-            var imageUploaderInput = document.getElementById("image-uploader-input");
-            const listColList = ["col-xl-8", "col-12", "co-sm-12","col-md-12"];
-            const gridColList = ["col-md-5"];
-            // Grid View
-            function gridView() {
-                outerRow.className += " justify-content-around";
+    <script>
+        var outerRow = document.getElementById("outer-row");
+        var listViewbtn = $('#listViewBtn');
+        var gridViewbtn = $('#gridViewBtn');
+        var imageUploaderDiv = document.getElementById("image-uploader-div");
+        var imageUploaderInput = document.getElementById("image-uploader-input");
+        const listColList = ["col-xl-8", "col-12", "co-sm-12", "col-md-12"];
+        const gridColList = ["col-md-5"];
+        // Grid View
+        function gridView() {
+            outerRow.className += " justify-content-around";
 
-                $('#outer-row').find("a").each(function (index, obj) {
-                    console.log(index);
-                    $(this).removeClass(listColList).addClass(gridColList).css("margin-right", "0.1rem");
-
-                    //$('.profile-img').removeClass("col-1").addClass("col-2");
-                })
-            }
-            function listView() {
-                $('#outer-row').removeClass("justify-content-around");
-                $('#outer-row').find("a").each(function (index, obj) {
-                    console.log(index);
-                    $(this).removeClass(gridColList).addClass(listColList);
-                })
-            }
-            listViewbtn.click(function (e) {
-                e.preventDefault();
-                listView();
+            $('#outer-row').find("a").each(function (index, obj) {
+                console.log(index);
+                $(this).removeClass(listColList).addClass(gridColList).css("margin-right", "0.1rem");
             })
-
-            gridViewbtn.click(function (e) {
-                e.preventDefault();
-                gridView();
+        }
+        function listView() {
+            $('#outer-row').removeClass("justify-content-around");
+            $('#outer-row').find("a").each(function (index, obj) {
+                console.log(index);
+                $(this).removeClass(gridColList).addClass(listColList);
             })
-            
-            imageUploaderDiv.addEventListener("click", openInputFile);
-            function openInputFile() {
-                imageUploaderInput.click();
-            };
+        }
+        listViewbtn.click(function (e) {
+            e.preventDefault();
+            listView();
+        })
 
-            $('#image-uploader-input').change(function () {
-                const file = this.files[0];
-                console.log(file);
-                if (file) {
-                    let reader = new FileReader();
-                    reader.onload = function (event) {
-                        console.log(event.target.result);
-                        $('#user-icon-i').css("display", "none");
-                        $('#imgPreview').css("display", "initial");
-                        $('#imgPreview').attr('src', event.target.result);
-                    }
-                    reader.readAsDataURL(file);
+        gridViewbtn.click(function (e) {
+            e.preventDefault();
+            gridView();
+        })
+
+        imageUploaderDiv.addEventListener("click", openInputFile);
+        function openInputFile() {
+            imageUploaderInput.click();
+        };
+
+        $('#image-uploader-input').change(function () {
+            const file = this.files[0];
+            console.log(file);
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    console.log(event.target.result);
+                    $('#user-icon-i').css("display", "none");
+                    $('#imgPreview').css("display", "initial");
+                    $('#imgPreview').attr('src', event.target.result);
                 }
-            });
+                reader.readAsDataURL(file);
+            }
+        });
 
-            
-            //var container = document.getElementById("btnContainer");
-            //var btns = container.getElementsByClassName("btn");
-           /* for (var i = 0; i < btns.length; i++) {
-                btns[i].addEventListener("click", function () {
-                    var current = document.getElementsByClassName("active");
-                    current[0].className = current[0].className.replace(" active", "");
-                    this.className += " active";
-                });*/
-        </script>
-    }
+
+                    //var container = document.getElementById("btnContainer");
+                    //var btns = container.getElementsByClassName("btn");
+        /* for (var i = 0; i < btns.length; i++) {
+             btns[i].addEventListener("click", function () {
+                 var current = document.getElementsByClassName("active");
+                 current[0].className = current[0].className.replace(" active", "");
+                 this.className += " active";
+             });*/
+    </script>
+}

@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,9 +46,20 @@
     <Compile Include="Course\AddCourseVM.cs" />
     <Compile Include="Course\CourseVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task\TaskVM.cs" />
     <Compile Include="UserCourse\UserCourseVM.cs" />
+    <Compile Include="User\ContactVM.cs" />
     <Compile Include="User\UserVM.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TrainingApp.MVC.DTO\TrainingApp.MVC.DTO.csproj">
+      <Project>{67071966-a220-47fa-afd0-566736eebc55}</Project>
+      <Name>TrainingApp.MVC.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrainingApp.MVC.Entities\TrainingApp.MVC.Entities.csproj">
+      <Project>{022d196a-22b2-4856-9939-78ead299afb6}</Project>
+      <Name>TrainingApp.MVC.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

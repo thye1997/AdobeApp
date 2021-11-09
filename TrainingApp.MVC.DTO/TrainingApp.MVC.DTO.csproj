@@ -44,6 +44,16 @@
     <Compile Include="Course\CourseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCourse\UserCourseDTO.cs" />
+    <Compile Include="User\ContactDTO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrainingApp.MVC.Entities\TrainingApp.MVC.Entities.csproj">
+      <Project>{022d196a-22b2-4856-9939-78ead299afb6}</Project>
+      <Name>TrainingApp.MVC.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Task\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,7 +17,9 @@ namespace TrainingApp.MVC.Framework.WebServices
             var client = CreateClient($"{_baseUrl}{apiPath}");
 
             var request = MapRquestContent(method, requestContent);
+            
             IRestResponse<T> response = client.Execute<T>(request);
+           
             return response;
         }
 
@@ -37,7 +39,6 @@ namespace TrainingApp.MVC.Framework.WebServices
         public IRestRequest CreateBasicRestRequest(Method method)
         {
             var request = new RestRequest(method);
-            
             return request;
         }
 

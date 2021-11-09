@@ -1,4 +1,32 @@
-﻿
+﻿@model ContactVM
+@{ 
+    var selectListItem =  new List<SelectListItem>();
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Select Category",
+        Value = null,
+        Selected = true
+    });
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Manager",
+        Value = "Manager"
+    });
+
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Developer",
+        Value = "Developer"
+    });
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Designer",
+        Value = "Designer"
+    });
+
+    IEnumerable<SelectListItem> selectedListCategory = selectListItem;
+
+}
 <div class="modal fade add-contact-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content  pt-2 pl-3 pr-3 pb-3">
@@ -8,54 +36,60 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="userForm"> 
-                <div class="mt-3 mb-3 d-flex justify-content-center" id="image-uploader-div">
-                    <input type="file" id="image-uploader-input" style="display:none;" />
-                    <div class="d-flex justify-content-center w-25 h-25 p-3" style="background-color:aliceblue; border-radius:10px;">
-                        <i class="fa fa-3x fa-user-circle" id="user-icon-i" style="color:deepskyblue;"></i>
-                        <img id="imgPreview" alt="pic" style="width:100px;height:100px; display:none;"/>
-                    </div>
-                </div>
+            @using (Html.BeginForm("AddContact", "Contact", FormMethod.Post, new { id = "AddContactForm", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+        <div class="mt-3 mb-3 d-flex justify-content-center" id="image-uploader-div">
+            <input type="file" id="image-uploader-input" name="file" style="display:none;" />
+
+            <div class="d-flex justify-content-center w-25 h-25 p-3" style="background-color:aliceblue; border-radius:10px;">
+                <i class="fa fa-3x fa-user-circle" id="user-icon-i" style="color:deepskyblue;"></i>
+                <img id="imgPreview" alt="pic" style="width:100px;height:100px; display:none;" />
+            </div>
+        </div>
                 <div class="row mt-2">
                     <div class="form-group col">
                         <label for="InputNRIC">First Name<span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="InputNRIC" name="nric" placeholder="eg. 999999-10-9999">
+                        @Html.EditorFor(model => model.AddContactVM.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AddContactVM.FirstName, String.Empty, new { @class = "text-danger" })
                     </div>
                     <div class="form-group col">
                         <label for="InputFullName">Last Name<span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="InputFullName" name="fullName" placeholder="eg. Low Chen Thye">
+                        @Html.EditorFor(model => model.AddContactVM.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AddContactVM.LastName, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
+
                     </div>
                 </div>
                 <div class="form-group mt-2">
                     <label for="InputNRIC">Email<span style="color:red">*</span></label>
-                    <input type="text" class="form-control" style="max-width:100%;" id="InputNRIC" name="nric" placeholder="eg. chenthye0825@hotmail.com">
+                    @Html.EditorFor(model => model.AddContactVM.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "eg. chenthye0825@hotmail.com", @style = "max-width:100%;" } })
+                    @Html.ValidationMessageFor(model => model.AddContactVM.Email, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
                 </div>
                 <div class="row">
                     <div class="form-group col">
                         <label for="InputPhoneNumber">Phone Number<span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="InputPhoneNumber" name="phoneNumber" placeholder="eg. 018-123456789">
+                        @Html.EditorFor(model => model.AddContactVM.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "eg. 018-123456789" } })
+                        @Html.ValidationMessageFor(model => model.AddContactVM.PhoneNumber, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
                     </div>
                     <div class="form-group col">
-                        <label for="Inputbirthday">Date of Birth<span style="color:red">*</span></label>
-                        <input type="text" class="form-control" id="Inputbirthday" name="DOB">
+                        <label for="InputGender">Category<span style="color:red">*</span></label>
+                        @Html.DropDownListFor(model => model.AddContactVM.Category, selectedListCategory, new { @class = "custom-select form-control", @placeholder = "eg. Select Category" })
+                        @Html.ValidationMessageFor(model => model.AddContactVM.Category, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col">
-                        <label for="InputGender1">Gender<span style="color:red">*</span></label>
-                        <select class="custom-select" id="genderSelect" name="Gender">
-                            <option value="">Select Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
+                    <div class="form-group col-6">
+                        <label for="InputPhoneNumber">Salary Rate/Hr<span style="color:red">*</span></label>
+                        @Html.EditorFor(model => model.AddContactVM.HourRate, new { htmlAttributes = new { @class = "form-control", @placeholder = "eg. 17/Hr" } })
+                        @Html.ValidationMessageFor(model => model.AddContactVM.HourRate, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
                     </div>
                 </div>
-                <span class="d-block" id="genderErr" style="margin-top:-16px; color:red;"></span>
+                <hr />
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-light mr-auto">Cancel</button>
+                    <button class="btn btn-light mr-auto px-3 py-2">Cancel</button>
                     <button type="submit" class="btn" style="background: #8173FE; color:white;">Add Contact</button>
                 </div>
-            </form>
+            }
         </div>
     </div>
 </div>

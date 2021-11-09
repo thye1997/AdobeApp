@@ -12,5 +12,17 @@ namespace TrainingApp.MVC.UI.Process.Interfaces
         UserVM Get(int Id);
 
         void AddCourse(UserVM userVM);
+
+        ContactVM GetContactList();
+
+        ContactDetailVM GetContactDetail(int Id);
+
+        void EditTaskStatus(EditTaskVM editTaskVM);
+
+        void AddTask(ContactDetailVM contactDetailVM);
+
+        ContactVM GetContactBySort(string sortKeyword);
+
+        void AddContact(ContactVM contactVM);
     }
 }

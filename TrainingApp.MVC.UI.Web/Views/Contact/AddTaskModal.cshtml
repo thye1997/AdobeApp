@@ -1,0 +1,63 @@
+﻿@model ContactDetailVM
+@{
+    var selectListItem = new List<SelectListItem>();
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Select task status",
+        Value = null,
+        Selected = true
+    });
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "On Hold",
+        Value = "On Hold"
+    });
+
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Pending",
+        Value = "Pending"
+    });
+    selectListItem.Add(new SelectListItem
+    {
+        Text = "Done",
+        Value = "Done"
+    });
+
+    IEnumerable<SelectListItem> selectedListCategory = selectListItem;
+
+}
+<div class="modal fade add-task-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content  pt-2 pl-3 pr-3 pb-3">
+            <div class="modal-header" style="margin-left:-1rem;">
+                <h5 class="modal-title" style="font-size:14px;">Create New Task</h5>
+                <button type="button" class="close" id="close-addpatient-modal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("AddTask", "Contact", FormMethod.Post, new { id = "AddTaskForm"}))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="InputPhoneNumber">Task Name<span style="color:red">*</span></label>
+                        @Html.HiddenFor(c=>c.Id)
+                        @Html.EditorFor(model => model.AddTask.TaskName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AddTask.TaskName, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
+                    </div>
+                    <div class="form-group col">
+                        <label for="InputGender">Task Status<span style="color:red">*</span></label>
+                        @Html.DropDownListFor(model => model.AddTask.TaskStatus, selectedListCategory, new { @class = "custom-select form-control", @placeholder = "eg. Select Task Status" })
+                        @Html.ValidationMessageFor(model => model.AddTask.TaskStatus, String.Empty, new { id = "GradeInputErr", @class = "text-danger" })
+                    </div>
+                </div>
+                <hr />
+                <div class="modal-footer">
+                    <button class="btn btn-light mr-auto px-3 py-2">Cancel</button>
+                    <button type="submit" class="btn" style="background: #8173FE; color:white;">Add Task</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

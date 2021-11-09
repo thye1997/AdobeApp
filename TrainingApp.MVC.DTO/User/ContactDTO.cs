@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using TrainingApp.MVC.Entities.Shared;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TrainingApp.MVC.Entities;
 
-namespace TrainingApp.MVC.Entities
+namespace TrainingApp.MVC.DTO
 {
-    public class User : Entity
+   public class ContactDTO
     {
-        [MaxLength(50)]
         public string FirstName { set; get; }
 
         public string LastName { set; get; }
 
-        public byte [] AvatarImage { set; get; }
+        public byte[] AvatarImage { set; get; }
 
         public string Email { set; get; }
 
@@ -22,6 +23,6 @@ namespace TrainingApp.MVC.Entities
 
         public int HourRate { set; get; }
 
-        public ICollection<Task> Task { set; get; }
+        public List<Entities.Task> Task { set; get; }
     }
 }

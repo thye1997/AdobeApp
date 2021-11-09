@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrainingApp.MVC.Entities;
 using TrainingApp.MVC.Framework.Constants;
+using Task = TrainingApp.MVC.Entities.Task;
 
 namespace TrainingApp.MVC.Data.Context
 {
@@ -19,6 +20,6 @@ namespace TrainingApp.MVC.Data.Context
 
         public DbSet<User> User { set; get; }
 
-        public DbSet<Course> Course { set; get; }
+        public DbSet<Task> Course { set; get; }
     }
 }
